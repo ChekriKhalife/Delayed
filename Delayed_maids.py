@@ -904,12 +904,13 @@ class DelayedMaidsApp:
         
         self.app.run_server(debug=debug, port=port, host=host)
 
+app = DelayedMaidsApp()
+app.setup_layout()
+app.setup_callbacks()
+server = app.app.server
 # Main execution
 if __name__ == '__main__':
     try:
-        app = DelayedMaidsApp()
-        app.setup_layout()
-        app.setup_callbacks()
         app.run_server(debug=True, port=8075)
     except Exception as e:
         print(f"\nError starting server: {e}")
